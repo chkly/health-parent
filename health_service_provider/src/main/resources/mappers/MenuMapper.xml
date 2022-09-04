@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.java.serviceprovider.mapper.MenuMapper" >
+    <select id="selectByRoleid"
+            parameterType="int"
+            resultType="com.java.common.pojo.Menu">
+        select  *
+        from t_menu t1 ,t_role_menu t2
+        where t1.id = t2.menu_id and t2.role_id = #{id}
+    </select>
+</mapper>

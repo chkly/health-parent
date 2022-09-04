@@ -1,0 +1,7 @@
+server:
+  port: 9002
+
+qiniu:
+  accessKey: rBh-QfhsoePjLyDnEDWHgh-G2Hzt16vjnrULyFW1
+  secretKey: LpNEGn4KSCny1ChssMrp8d42FrG7FxD2dn5IcIZR
+  bucket: kanganhealth-j

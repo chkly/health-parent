@@ -1,0 +1,46 @@
+dubbo:
+  application:
+    name: health-service-provider
+  registry:
+    address: zookeeper://192.168.247.129:2181
+  scan:
+    base-packages: com.java.serviceprovider.service.impl
+
+server:
+  port: 8001
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/kangan_health?useSSL=false&useServerPrepStmts=true&characterEncoding=utf8
+    username: root
+    password: chk20001009
+  redis:
+    host: 192.168.247.129  #redis服务所在的主机ip
+    port: 6379
+    database: 1  #要连接的数据库，默认是0
+    timeout: 30000   # 连接超时时间（毫秒）
+    lettuce:
+      pool:
+        max-wait: -1 #最大阻塞等待时间 (负数表示没限制)
+        max-active: 20  # 连接池最大连接数（使用负值表示没有限制）
+        max-idle: 5   # 连接池中的最大空闲连接
+        min-idle: 0  #  连接池中的最小空闲连接
+  freemarker:
+    template-loader-path: /ftl # 设定ftl文件路径
+    suffix: .ftl
+    cache: false #  关闭缓存，及时刷新，上线生产环境需要修改为true
+    charset: UTF-8
+    content-type: text/html
+    check-template-location: true # 检查模板位置是否存在
+outputPath: D:\javaproject\health-parent\health_mobile\src\main\resources\static\pages
+
+
+mybatis:
+  mapper-locations: classpath:mappers/*Mapper.xml
+  type-aliases-package: com.java.common.pojo  #扫描的实体包
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+
